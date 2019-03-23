@@ -1,0 +1,76 @@
+// Background
+@mixin background($image, $position: center, $repeat: no-repeat, $size: cover, $color: transparent){
+  background: {
+    image: url($images-path + $image);
+    position: $position;
+    repeat: $repeat;
+    size: $size;
+    color: $color;
+  };
+}
+@mixin gradient-background($color-1: #fff, $color-2: #fff){
+  background: $color-1;
+  background: -moz-linear-gradient(45deg, $color-1 0%, $color-2 100%);
+  background: -webkit-linear-gradient(45deg, $color-1 0%, $color-2 100%);
+  background: linear-gradient(45deg, $color-1 0%, $color-2 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$color-1, endColorstr=$color-2,GradientType=1 );
+}
+
+// Position
+@mixin position-abs-t-l($top: 0, $left: 0) {
+  position: absolute;
+  top: $top;
+  left: $left;
+}
+@mixin position-abs-t-r($top: 0, $right: 0) {
+  position: absolute;
+  top: $top;
+  right: $right;
+}
+@mixin position-abs-b-l($bottom: 0, $left: 0) {
+  position: absolute;
+  bottom: $bottom;
+  left: $left;
+}
+@mixin position-abs-b-r($bottom, $right) {
+  position: absolute;
+  bottom: $bottom;
+  right: $right;
+}
+@mixin position-abs-v-center {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+@mixin position-abs-h-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@mixin position-abs-vh-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// Sizing
+@mixin fullsize-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+// Texts
+@mixin cropLongText {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// Transitions
+@mixin transition($property: all, $duration: .5s, $delay: 0s){
+  transition: $property $duration $delay;
+}

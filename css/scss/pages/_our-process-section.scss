@@ -1,0 +1,155 @@
+.our-process-section {
+  background-attachment: fixed;
+  @include background('bg-2.jpg');
+
+  .inner-container {
+    padding: 75px 0;
+    background-color: rgba($palette-color-2, .5);
+  }
+  .steps-container {
+    margin: 40px 0 0;
+
+    .tabs-container {
+      border-bottom: 1px solid $palette-color-4;
+      padding-bottom: 60px;
+
+      .tabs {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        display: flex;
+        justify-content: space-around;
+
+        .tab {
+          display: inline-block;
+          position: relative;
+
+          a {
+            display: flex;
+            width: 180px;
+            height: 180px;
+            align-items: center;
+            justify-content: center;
+            background-color: $palette-color-1;
+            border: 2px solid $palette-color-1;
+            border-radius: 50%;
+            font: {
+              family: $base-font-family;
+              weight: $base-font-medium;
+              size: 16px;
+            };
+            color: $palette-color-2;
+            text-transform: uppercase;
+            text-align: center;
+
+            &:hover {
+              background-color: $palette-color-2;
+              border-color: $palette-color-2;
+              color: $palette-color-1;
+            }
+          }
+
+          &:after {
+            display: block;
+            width: 1px;
+            height: 0;
+            content: '';
+            background-color: $palette-color-4;
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translate(50%, 100%);
+            @include transition();
+          }
+
+          &.active {
+            a {
+              border-color: $palette-color-5;
+              background-color: transparent;
+              color: $palette-color-1;
+            }
+
+            &:after {
+              height: 60px;
+            }
+          }
+        }
+      }
+    }
+    .tabs-content {
+      padding: 20px 0 0;
+
+      .tab-content {
+        visibility: hidden;
+        opacity: 0;
+        display: none;
+        @include transition();
+
+        &.show {
+          visibility: visible;
+          opacity: 1;
+          display: block;
+          animation: {
+            name: fadeIn;
+            delay: 0s;
+            duration: .8s;
+          };
+        }
+
+        p {
+          font: {
+            family: $base-font-family;
+            weight: $base-font-regular;
+            size: 14px;
+          };
+          color: $palette-color-5;
+          line-height: 1.8;
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 767px) {
+  .our-process-section {
+    .steps-container {
+      .tabs-container {
+        .tabs {
+          flex-wrap: wrap;
+
+          .tab {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+
+            &.active {
+              &:after {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 575px) {
+  .our-process-section {
+    .steps-container {
+      .tabs-container {
+        .tabs {
+          .tab {
+            a {
+              flex: none;
+              width: 130px;
+              height: 130px;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

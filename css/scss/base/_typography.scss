@@ -1,0 +1,21 @@
+a {
+  font: {
+    family: $base-font-family;
+    weight: $base-font-regular;
+    size: 14px;
+  };
+  color: $palette-color-4;
+  text-decoration: none;
+  @include transition();
+
+  &:hover {
+    color: $palette-color-1;
+  }
+}
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font: {
+    family: $base-font-family;
+    weight: $base-font-bold;
+  };
+}

@@ -1,0 +1,189 @@
+.owl-carousel {
+
+  &.main-carousel {
+    position: relative;
+    overflow: hidden;
+
+    .owl-item {
+
+      .item {
+        padding-top: 60px;
+        box-sizing: border-box;
+        min-height: 100vh;
+        background: {
+          position: center;
+          size: cover;
+        };
+
+        h1, h2, h3, h4 {
+          margin: 0;
+        }
+
+        .text-container {
+          color: $palette-color-5;
+          z-index: 5;
+          text-align: center;
+          @include position-abs-vh-center;
+
+          h1, .description {
+            opacity: 0;
+            visibility: hidden;
+            transition: all .8s 1s;
+          }
+
+          h1 {
+            font: {
+              family: $slider-title-font-family;
+              weight: $base-font-light;
+              size: 70px;
+            };
+            text-align: center;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            transform: translateY(-30px);
+          }
+
+          .description {
+            display: inline-block;
+            font: {
+              family: $base-font-family;
+              weight: $base-font-light;
+              size: 30px;
+            };
+            transform: translateY(30px);
+          }
+        }
+      }
+
+      &.active {
+        .item {
+          .text-container {
+            h1, .description {
+              opacity: 1;
+              visibility: visible;
+              transform: translateY(0);
+            }
+          }
+        }
+      }
+    }
+    .owl-nav {
+      width: 100%;
+      @include position-abs-v-center;
+
+      & > div {
+        line-height: 45px;
+        height: 48px;
+        transform: translateX(0);
+        visibility: hidden;
+        opacity: 0;
+        transition: all .5s 0s;
+        @include position-abs-v-center;
+
+        i {
+          line-height: 45px;
+          font-size: 75px;
+          color: #fff;
+        }
+
+        &.owl-prev {
+          left: 20px;
+          transform: translateX(-40px);
+        }
+        &.owl-next {
+          right: 20px;
+          transform: translateX(40px);
+        }
+      }
+    }
+
+    &:hover {
+      .owl-nav {
+
+        & > div {
+          transform: translateX(0);
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+    }
+  }
+  &.reviews-carousel {
+    margin-top: 20px;
+
+    .owl-stage {
+      display: flex;
+      align-items: stretch;
+
+      .owl-item {
+        display: flex;
+      }
+    }
+    .owl-dots {
+      text-align: center;
+      margin-top: 30px;
+
+      .owl-dot {
+        display: inline-block;
+        margin-right: 10px;
+
+        span {
+          display: block;
+          width: 8px;
+          height: 8px;
+          box-sizing: border-box;
+          border-radius: 50%;
+          background-color: $palette-color-2;
+          border: 2px solid $palette-color-2;
+          @include transition();
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+        &.active {
+          span {
+            background-color: transparent;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 767px) {
+  .owl-carousel {
+
+    &.main-carousel {
+      .owl-item {
+        .item {
+          .text-container {
+            h1 {
+              font-size: 48px;
+            }
+            .description {
+              font-size: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 575px) {
+  .owl-carousel {
+    &.main-carousel {
+      .owl-item {
+        .item {
+          .text-container {
+            h1 {
+              font-size: 40px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

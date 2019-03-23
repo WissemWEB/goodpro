@@ -1,0 +1,41 @@
+.descriptions-list {
+  display: flex;
+  margin-top: 30px;
+
+  .item {
+    width: calc(100%/3);
+    padding: 0 15px;
+
+    p {
+      font: {
+        family: $base-font-family;
+        size: 14px;
+      };
+      line-height: 1.6;
+      color: $palette-color-5;
+    }
+
+    .item-title {
+      color: $palette-color-5;
+
+      span {
+        color: $palette-color-3;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 767px) {
+  .descriptions-list {
+    flex-wrap: wrap;
+
+    .item {
+      width: 100%;
+      margin-bottom: 15px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

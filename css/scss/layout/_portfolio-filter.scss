@@ -1,0 +1,116 @@
+.portfolio-container {
+  .portfolio-filter {
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+
+    .button {
+      background-color: transparent;
+      border: 2px solid transparent;
+      outline: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 2px;
+      font: {
+        family: $base-font-family;
+        weight: $base-font-medium;
+        size: 14px;
+      };
+      color: $palette-color-5;
+      @include transition();
+
+      &:hover {
+        background-color: $palette-color-3;
+        border-color: $palette-color-3;
+      }
+      &.is-checked {
+        background-color: $palette-color-1;
+        border-color: $palette-color-1;
+        color: $palette-color-2
+      }
+    }
+  }
+  .portfolio-grid {
+    border: 2px solid $palette-color-2;
+
+    .element-item {
+      width: 25%;
+      height: 315px;
+      background-color: $palette-color-4;
+      border: 2px solid $palette-color-2;
+      box-sizing: border-box;
+
+      a {
+        display: block;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+
+        .title-overlay {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          opacity: 0;
+          visibility: hidden;
+          overflow: hidden;
+          background-color: rgba($palette-color-1, .6);
+          z-index: 6;
+          @include transition();
+          @include position-abs-vh-center;
+
+          h4 {
+            margin: auto;
+            color: $palette-color-2;
+          }
+        }
+
+        img {
+          min-width: 100%;
+          min-height: 100%;
+          @include position-abs-vh-center;
+        }
+
+        &:hover {
+          .title-overlay {
+            opacity: 1;
+            visibility: visible;
+
+            h4 {
+              animation: {
+                name: fadeInDown;
+                delay: 0s;
+                duration: 1s;
+              };
+            }
+          }
+        }
+      }
+    }
+  }
+  .button-container {
+    padding: 20px 0;
+    background-color: $palette-color-1;
+    text-align: center;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .portfolio-container {
+    .portfolio-grid {
+      .element-item {
+        width: 50%;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 575px) {
+  .portfolio-container {
+    .portfolio-grid {
+      .element-item {
+        height: 150px;
+      }
+    }
+  }
+}

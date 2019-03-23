@@ -1,0 +1,68 @@
+.infography-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 50px;
+
+  .item {
+    padding: 0 20px;
+    box-sizing: border-box;
+    width: 200px;
+
+    .icon-container {
+      text-align: center;
+      margin-bottom: 30px;
+
+      i {
+        font-size: 60px;
+        color: $palette-color-1;
+      }
+    }
+    .counting {
+      color: $palette-color-5;
+      font: {
+        family: $slider-title-font-family;
+        weight: $base-font-medium;
+        size: 40px;
+      };
+
+    }
+    .description {
+      margin-top: 10px;
+      color: $palette-color-1;
+      font: {
+        family: $base-font-family;
+        size: 12px;
+      };
+      text-transform: uppercase;
+    }
+
+    & > span {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+@media all and (max-width: 991px) {
+  .infography-list {
+    .item {
+      width: 25%;
+      flex: none;
+    }
+  }
+}
+
+@media all and (max-width: 767px) {
+  .infography-list {
+    .item {
+      width: 50%;
+      margin-top: 40px;
+
+      &:nth-child(1), &:nth-child(2) {
+        margin-top: 0;
+      }
+    }
+  }
+}

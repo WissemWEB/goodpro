@@ -1,0 +1,130 @@
+.btn {
+  position: relative;
+  display: inline-block;
+  min-width: 200px;
+  height: 30px;
+  line-height: 30px;
+  padding: 10px 15px;
+  font: {
+    family: $base-font-family;
+    weight: $base-font-regular;
+    size: 14px;
+  };
+  border: 2px solid $palette-color-3;
+  color: $palette-color-3;
+  background-color: transparent;
+  text-align: center;
+  border-radius: 2px;
+  text-transform: uppercase;
+  @include transition();
+
+  span {
+    position: relative;
+    z-index: 3;
+  }
+
+  &.btn-primary {
+    border-color: $palette-color-1;
+    color: $palette-color-1;
+
+    &:hover {
+      background-color: rgba($palette-color-1, .7);
+      color: $palette-color-5;
+    }
+  }
+  &.btn-secondary {
+    border-color: $palette-color-2;
+    color: $palette-color-2;
+
+    &:hover {
+      background-color: rgba($palette-color-2, .7);
+      color: $palette-color-1;
+    }
+  }
+  &:hover {
+    background-color: rgba($palette-color-3, .7);
+    color: $palette-color-5;
+  }
+  &:focus {
+    &:after {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &:after {
+    content: '';
+    width: 0;
+    height: 0;
+    display: block;
+    background-color: rgba(0, 0, 0, .3);
+    z-index: 2;
+    @include transition();
+    @include position-abs-vh-center;
+  }
+}
+.main-menu-btn {
+  width: 24px;
+  height: 24px;
+  display: none;
+  background-color: $palette-color-3;
+  padding: 5px;
+  margin-left: 20px;
+  z-index: 11;
+
+  .bar-icon {
+    display: block;
+    position: relative;
+    width: 24px;
+    height: 24px;
+
+    .bar-line {
+      display: block;
+      width: 100%;
+      height: 2px;
+      position: absolute;
+      left: 0;
+      opacity: 1;
+      visibility: visible;
+      background-color: #fff;
+      transition: all .5s 0s;
+
+      &:nth-child(1) {
+        top: 3px;
+      }
+      &:nth-child(2) {
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      &:nth-child(3) {
+        bottom: 3px;
+      }
+    }
+  }
+
+  &.active {
+    .bar-icon {
+      .bar-line {
+        &:nth-child(1) {
+          top: 50%;
+          transform: rotate(45deg) translateY(-50%);
+        }
+        &:nth-child(2) {
+          opacity: 0;
+          visibility: hidden;
+        }
+        &:nth-child(3) {
+          top: 50%;
+          transform: rotate(-45deg) translateY(-50%);
+        }
+      }
+    }
+  }
+
+}
+
+@media all and (max-width: 767px) {
+  .main-menu-btn {
+    display: block;
+    margin: 0 0 0 auto;
+  }
+}

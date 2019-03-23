@@ -1,0 +1,19 @@
+.reviews-section {
+
+  .inner-container {
+    background-color: $palette-color-5;
+
+    .title-container {
+      h1 {
+        color: $palette-color-2;
+      }
+      .divider {
+        span {
+          &:before, &:after {
+            background-color: rgba($palette-color-2, .2);
+          }
+        }
+      }
+    }
+  }
+}

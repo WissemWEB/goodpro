@@ -1,0 +1,7 @@
+.slider-progress {
+  width: 0;
+  height: 2px;
+  background-color: $palette-color-1;
+  z-index: 3;
+  @include position-abs-b-l(0, 0);
+}

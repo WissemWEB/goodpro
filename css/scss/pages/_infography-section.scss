@@ -1,0 +1,9 @@
+.infography-section {
+  @include background('info-bg.jpg');
+  background-attachment: fixed;
+
+  .inner-container {
+    padding: 90px 0;
+    background-color: rgba(0, 0, 0, .9);
+  }
+}

@@ -1,0 +1,84 @@
+.modal {
+  display: flex;
+  position: fixed;
+  max-height: 100%;
+  overflow-y: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 100px 0 40px;
+  background-color: rgba($palette-color-4, .7);
+  box-sizing: border-box;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 19;
+  @include transition();
+
+  .modal-dialog {
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+    background-color: $palette-color-5;
+    margin: auto auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba($palette-color-2, .9);
+    overflow: hidden;
+    animation: {
+      name: fadeOutUp;
+      delay: 0s;
+      duration: 1s;
+    };
+
+    & > div {
+      padding: 20px;
+    }
+
+    .modal-header {
+      padding-right: 40px;
+    }
+    .modal-body {
+      .form {
+        .form-group {
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          .form-control {
+            background-color: $palette-color-5;
+            color: $palette-color-2;
+
+            &::placeholder {
+              color: $palette-color-2;
+            }
+          }
+        }
+      }
+    }
+    .modal-footer {
+
+    }
+    .close-modal {
+      display: flex;
+      width: 18px;
+      height: 18px;
+      font-size: 20px;
+      line-height: 18px;
+      @include position-abs-t-r(10px, 10px);
+
+      i {
+        margin: auto;
+      }
+    }
+  }
+  &.open {
+    visibility: visible;
+    opacity: 1;
+
+    .modal-dialog {
+      animation: {
+        name: fadeInDown;
+      };
+    }
+  }
+}

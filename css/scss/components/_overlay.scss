@@ -1,0 +1,13 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: {
+    image: url($images-path + 'overlay.png');
+    repeat: repeat;
+    position: center;
+  };
+  z-index: 2;
+}

@@ -1,0 +1,13 @@
+.header {
+  width: 100%;
+  background-color: $palette-color-2;
+  padding: 10px 0;
+  box-shadow: $base-box-shadow;
+  position: absolute;
+  z-index: 20;
+
+  .brand {
+    position: relative;
+    z-index: 11;
+  }
+}

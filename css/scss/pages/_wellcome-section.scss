@@ -1,0 +1,26 @@
+.wellcome-section {
+  background-attachment: fixed;
+  @include background('wellcome-image-bg.jpg');
+
+  .inner-container {
+    width: 100%;
+    position: relative;
+    background-color: rgba($palette-color-2, .9);
+    padding: 90px 50px;
+    box-sizing: border-box;
+
+    .button-container {
+      padding: 0 15px;
+      margin: 30px 0 0;
+      text-align: center;
+    }
+  }
+}
+
+@media all and (max-width: 575px) {
+  .wellcome-section {
+    .inner-container {
+      padding: 70px 0;
+    }
+  }
+}

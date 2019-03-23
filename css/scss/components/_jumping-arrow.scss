@@ -1,0 +1,16 @@
+.jumping-arrow {
+  bottom: 20px;
+  animation: {
+    name: jumping;
+    duration: 2s;
+    delay: 1s;
+    iteration-count: infinite;
+  };
+  z-index: 4;
+  @include position-abs-h-center;
+
+  i {
+    font-size: 40px;
+    color: #fff;
+  }
+}
